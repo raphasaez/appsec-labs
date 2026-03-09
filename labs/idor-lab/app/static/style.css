@@ -119,3 +119,26 @@ button:hover {
     color: #ff3333;
     font-weight: bold;
 }
+/* Instruções abaixo do lab */
+#instructions {
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+#instructions h2 {
+    margin-top: 0;
+    font-size: 1.3em;
+}
+
+#instructions ul {
+    padding-left: 20px;
+}

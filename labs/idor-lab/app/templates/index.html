@@ -9,9 +9,8 @@
 </head>
 <body>
 <div class="container">
-<div id="timer" class="hidden">Time: 0s</div>
+  <div id="timer" class="hidden">Time: 0s</div>
 
-  <!-- Login -->
   <div id="login-section">
     <h2>Login</h2>
     <input id="username" placeholder="Username"/>
@@ -19,9 +18,8 @@
     <div id="login-msg" class="message"></div>
   </div>
 
-  <!-- Dashboard -->
   <div id="user-section" class="hidden">
-    <h2>Welcome, <span id="current-user"></span></h2>
+    <h2>Bem vindo, <span id="current-user"></span></h2>
 
     <div class="edit-user">
       <input id="new-name" placeholder="New name"/>
@@ -29,12 +27,24 @@
       <div id="edit-msg" class="message"></div>
     </div>
 
-    <h3>All Users</h3>
+    <h3>Usuarios</h3>
     <ul id="users-list"></ul>
 
     <button id="logout-btn">Logout</button>
   </div>
+</div>
 
+<!-- Div de instruções -->
+<div id="instructions">
+  <h2>Instruções</h2>
+  <p>Seu objetivo:</p>
+  <ul>
+    <li>Logar como Satoru</li>
+    <li>Explorar os usuários disponíveis</li>
+    <li>Causar dano aos usuarios utilizando os endpoints da aplicação</li>
+    <li>Observar alerta ao concluir o lab</li>
+  </ul>
+  <p>;)</p>
 </div>
 
 <script src="{{ url_for('static', filename='app.js') }}"></script>

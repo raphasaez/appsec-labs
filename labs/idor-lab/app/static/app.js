@@ -16,13 +16,13 @@ function initSocket() {
             stopLabTimer();
             alert(`Congratulations! User ${data.user_id} was deleted. Time: ${Math.floor((Date.now() - startTime)/1000)}s`);
         }
-        loadUsers(); // atualiza lista de usuários
+        loadUsers();
     });
 }
 
 function startLabTimer() {
     startTime = Date.now();
-    document.getElementById("timer").classList.remove("hidden"); // mostra o timer
+    document.getElementById("timer").classList.remove("hidden");
     timerInterval = setInterval(() => {
         const elapsed = Math.floor((Date.now() - startTime) / 1000);
         document.getElementById("timer").textContent = `Time: ${elapsed}s`;
@@ -36,7 +36,7 @@ function stopLabTimer() {
     }
 }
 
-// Login
+
 async function login() {
     const username = document.getElementById("username").value;
     const loginMsg = document.getElementById("login-msg");
@@ -67,14 +67,14 @@ async function login() {
     }
 }
 
-// Load all users (mock)
+
 async function loadUsers() {
     try {
-        const res = await fetch("/api/users", {  // pega o endpoint correto
+        const res = await fetch("/api/users", {  
             method: "GET",
-            credentials: "include"  // envia cookies da sessão
+            credentials: "include"  
         });
-        const users = await res.json(); // agora users vem do backend
+        const users = await res.json(); 
 
         const usersList = document.getElementById("users-list");
         usersList.innerHTML = "";
@@ -89,7 +89,7 @@ async function loadUsers() {
         console.error(err);
     }
 }
-// Edit current user
+
 async function editUser() {
     const newName = document.getElementById("new-name").value;
     const editMsg = document.getElementById("edit-msg");
@@ -117,7 +117,7 @@ async function editUser() {
     }
 }
 
-// Logout
+
 function logout() {
     stopLabTimer();
     currentUserId = null;
@@ -126,7 +126,7 @@ function logout() {
     document.getElementById("username").value = "";
 }
 
-// Event listeners
+
 document.getElementById("login-btn").addEventListener("click", login);
 document.getElementById("edit-btn").addEventListener("click", editUser);
 document.getElementById("logout-btn").addEventListener("click", logout);

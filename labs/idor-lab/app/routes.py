@@ -1,12 +1,11 @@
 from flask import Blueprint, jsonify, request, session
 
-main = Blueprint('main', __name__, url_prefix='/api')  # prefixo /api
+main = Blueprint('main', __name__, url_prefix='/api')
 
-# Mock de usuários
 users = [
-    {'id': 1, 'name': 'Alice'},
-    {'id': 2, 'name': 'Bob'},
-    {'id': 3, 'name': 'Charlie'}
+    {'id': 1, 'name': 'Satoru'},
+    {'id': 2, 'name': 'Kurama'},
+    {'id': 3, 'name': 'Aizen'}
 ]
 
 @main.route('/', methods=['GET'])
@@ -21,7 +20,7 @@ def login():
     if user:
         session['user_id'] = user['id']
         return jsonify({'message': f'Logged in as {username}', 'user_id': user['id']}), 200
-    return jsonify({'message': 'Invalid user'}), 401
+    return jsonify({'message': 'Use o Usuario Satoru'}), 401
 
 @main.route('/users', methods=['GET'])
 def get_users():
@@ -32,7 +31,7 @@ def edit_user(user_id):
     if 'user_id' not in session:
         return jsonify({'message': 'Not authenticated'}), 401
     if session['user_id'] != user_id:
-        return jsonify({'message': 'Unauthorized'}), 403
+        return jsonify({'message': 'Boa, mas o IDOR nao e aqui'}), 403
 
     data = request.get_json()
     user = next((u for u in users if u['id'] == user_id), None)

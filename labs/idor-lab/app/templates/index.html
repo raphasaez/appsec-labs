@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDOR Lab SPA</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div id="timer" class="hidden">Time: 0s</div>
+
+  <!-- Login -->
+  <div id="login-section">
+    <h2>Login</h2>
+    <input id="username" placeholder="Username"/>
+    <button id="login-btn">Login</button>
+    <div id="login-msg" class="message"></div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="user-section" class="hidden">
+    <h2>Welcome, <span id="current-user"></span></h2>
+
+    <div class="edit-user">
+      <input id="new-name" placeholder="New name"/>
+      <button id="edit-btn">Edit Name</button>
+      <div id="edit-msg" class="message"></div>
+    </div>
+
+    <h3>All Users</h3>
+    <ul id="users-list"></ul>
+
+    <button id="logout-btn">Logout</button>
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
